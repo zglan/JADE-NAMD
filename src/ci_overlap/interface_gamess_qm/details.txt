@@ -1,0 +1,45 @@
+
+NSTATE = Number of states to be found (excluding the
+         reference state).  The default is 1 more state.
+
+IROOT  = State used for geometry optimization and property
+         evaluation. (default=1)
+         TDDFT=EXCITE counts the reference as 0, and this
+         should be the lowest state.  Hence IROOT=1 means
+         the 1st excited state, just as you might guess.
+         TDDFT=SPNFLP labels the reference state as 0, but
+         this might not be the lowest state overall.  The
+         meaning of IROOT=1 is the lowest state, omitting
+         the reference state from consideration.  Hence
+         IROOT=1 might specify the ground state!
+
+MULT   = Multiplicity (1 or 3) of the singly excited
+         states.  This keyword applies only when the
+         reference is a closed shell.  (default is 1)
+         This parameter is ignored when TDDFT=SPNFLP.
+
+
+
+AMMD    is a flag selecting the Tamm/Dancoff approximation
+         be used.  This may be used with closed shell
+         excitation energies or gradients, or open shell
+         excitation energies.  Default = .FALSE.
+         This parameter is ignored by TDDFT=SPNFLP, which
+         is only coded in the Tamm/Dancoff approximation.
+
+
+DFTTYP
+TDTYP
+
+ * * * the following control the diagonalization * * *
+
+NSTATE = Number of CI states to be found, including the
+         ground state.  The default is 1, meaning ground
+         state only.  The maximum number of states is 100.
+         See also IROOT below (two places).
+
+PRTTOL = Printout tolerance for CI coefficients, the
+         default is to print any larger than 0.05.
+
+
+

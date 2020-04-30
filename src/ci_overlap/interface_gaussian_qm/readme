@@ -1,0 +1,58 @@
+class(QuantumBase) ==> class(Gaussian) ==> details
+
+dir in base 
+cp file in Gau
+
+nocc nvir nbf should dumped 
+
+read rwf for data.
+%rwf=td.rwf
+# force 
+
+read punch for data. fort.7
+force punch=(Coord, Derivatives, MO, Archive)
+
+read PES.out
+op(7/32=3,9/40=20)
+
+
+# force cis TD(singlet, root=2, nstates=3) B3LYP/6-31G(d) nosymm iop(7/32=3,9/40=20) punch=(Coord, Derivatives, MO, Archive)
+
+@ 7/32 punch out; 9/40 ci std.
+
+
+gaussian 09d
+TDA implemented
+TD IN RWF/CHK 635R, X-Y is not printed.
+
+g09c could print x-y
+
+in gaussian log
+m -> n coefficient is in fact X, while m <- n is Y, and \sqrt(\epsilon_a - \epsilon_i) is not multiplied.
+note: the turbomole interface do not do casida multiply. and they use x+y> in sing_a or ciss_a
+
+turbomole *py is X+Y for hybrid, and other case use x
+note in turbo, pure functional only has x vector
+
+FINAL CONCLUSIONS:
+1. gaussian log punch out excitation&de-excitation, which is X and Y; without do_casida 
+2. gaussian chk/rwf punch out |X+Y> and |X-Y> information; without do casida, this is the same as turbomole sing_a/ciss_a files
+3. log_parser implement X & X+Y with & without do_cisida
+4. rwf_parser implement X & X+Y with & without do_cisida
+5. for the case of log, iop(9/40=10) is required to punch out more ci coefficients
+
+gaussian gradient:
+only force is give in log file, use -force to get gradient.
+
+
+1. interface converter md  template to get json
+3. output analysis : GaussianParser analysis
+4. GaussianSetup
+5  GaussianDyn
+5. GaussianOverlap
+6. NAC exec
+~
+~
+~
+~
+

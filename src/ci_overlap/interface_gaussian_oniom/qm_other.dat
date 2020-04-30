@@ -1,0 +1,53 @@
+ Charge=              0.0000 electrons
+ Dipole moment (field-independent basis, Debye):
+    X=              1.5028    Y=              2.1947    Z=              0.0000  Tot=              2.6600
+ Quadrupole moment (field-independent basis, Debye-Ang):
+   XX=             -6.1925   YY=             -7.1301   ZZ=             -6.0350
+   XY=             -2.7732   XZ=              0.0000   YZ=              0.0000
+ Traceless Quadrupole moment (field-independent basis, Debye-Ang):
+   XX=              0.2600   YY=             -0.6776   ZZ=              0.4175
+   XY=             -2.7732   XZ=              0.0000   YZ=              0.0000
+ Octapole moment (field-independent basis, Debye-Ang**2):
+  XXX=              4.3682  YYY=             23.5235  ZZZ=              0.0000  XYY=              2.3324
+  XXY=              7.8819  XXZ=              0.0000  XZZ=              1.1971  YZZ=              7.0610
+  YYZ=              0.0000  XYZ=              0.0000
+ Hexadecapole moment (field-independent basis, Debye-Ang**3):
+ XXXX=             -5.5674 YYYY=            -53.2650 ZZZZ=             -3.9647 XXXY=             -6.2647
+ XXXZ=              0.0000 YYYX=             -8.0107 YYYZ=              0.0000 ZZZX=              0.0000
+ ZZZY=              0.0000 XXYY=             -7.2366 XXZZ=             -1.4659 YYZZ=             -9.5157
+ XXYZ=              0.0000 YYXZ=              0.0000 ZZXY=             -1.4218
+------------------------------------------------------------- 
+ 1PDM for each excited state written to RWF  633
+ Ground to excited state transition densities written to RWF  633
+ Ground to excited state transition electric dipole moments (Au):
+       state          X           Y           Z        Dip. S.      Osc.
+         1         0.0000      0.0000      0.5019      0.2519      0.0708
+         2         0.1868      0.2992      0.0000      0.1244      0.0400
+ Ground to excited state transition velocity dipole moments (Au):
+       state          X           Y           Z        Dip. S.      Osc.
+         1         0.0000      0.0000     -0.2977      0.0886      0.1402
+         2        -0.1325     -0.1965      0.0000      0.0562      0.0777
+ Ground to excited state transition magnetic dipole moments (Au):
+       state          X           Y           Z
+         1         0.7475     -0.1913      0.0000
+         2         0.0000      0.0000     -0.2082
+ Ground to excited state transition velocity quadrupole moments (Au):
+       state          XX          YY          ZZ          XY          XZ          YZ
+         1         0.0000      0.0000      0.0000      0.0000     -0.0540      0.5062
+         2         0.1338      0.8231      0.1608      0.1588      0.0000      0.0000
+ <0|del|b> * <b|rxdel|0> + <0|del|b> * <b|delr+rdel|0>
+ Rotatory Strengths (R) in cgs (10**-40 erg-esu-cm/Gauss)
+       state          XX          YY          ZZ    R(velocity)    E-M Angle
+         1         0.0000      0.0000      0.0000      0.0000       90.00
+         2         0.0000      0.0000      0.0000      0.0000       90.00
+ 1/2[<0|r|b>*<b|rxdel|0> + (<0|rxdel|b>*<b|r|0>)*]
+ Rotatory Strengths (R) in cgs (10**-40 erg-esu-cm/Gauss)
+       state          XX          YY          ZZ     R(length)
+         1         0.0000      0.0000      0.0000      0.0000
+         2         0.0000      0.0000      0.0000      0.0000
+  1/2[<0|del|b>*<b|r|0> + (<0|r|b>*<b|del|0>)*] (Au)
+       state          X           Y           Z        Dip. S.   Osc.(frdel)
+         1         0.0000      0.0000     -0.1494      0.1494      0.0996
+         2        -0.0248     -0.0588      0.0000      0.0836      0.0557
+
+------------------------------------------------------------- 

@@ -1,0 +1,59 @@
+#/bin/sh
+
+errMsg()
+{
+echo "Error: $1">&2
+exit 1
+}
+warnMsg()
+{
+echo "Warning: $1">&2
+}
+
+checkTmpPath()
+{
+if [ -n "$GAUSS_SCRDIR" ] ; then
+    [ ! -d "$GAUSS_SCRDIR" ] && errMsg "GAUSS_SCRDIR does not exist."
+    [ ! -x "$GAUSS_SCRDIR" ] && errMsg "GAUSS_SCRDIR can NOT be writable."
+    [ ! -w "$GAUSS_SCRDIR" ] && errMsg "GAUSS_SCRDIR can NOT be writable."
+    yourTmpDir=`cd $GAUSS_SCRDIR; pwd -P` 
+    [ "$yourTmpDir" = "/tmp" ] && errMsg "Do NOT have permission to use /tmp as GAUSS_SCRDIR."
+else 
+    warnMsg "Use \"./\" as default GAUSS_SCRDIR."
+    export GAUSS_SCRDIR=./
+fi
+}
+
+
+cpus=`echo $LSB_MCPU_HOSTS| awk 'BEGIN{max=0}{n=split($0, a, " ")
+        for(i=2;i<=n;i+=2)
+                 max=a[i]+max
+        }
+        END{print max}'`
+
+HOSTLIST=""
+ODD=1
+for HOST in $LSB_MCPU_HOSTS
+do
+        if [ $ODD -eq 1 ]; then
+                HOSTLIST="$HOSTLIST $HOST"
+                ODD=0
+        else
+                ODD=1
+        fi
+done
+                                                                                
+export g09root=/home_soft/soft/x86_64/apps/CompChem
+source $g09root/g09/bsd/g09.profile
+export GAUSS_LFLAGS="-nodelist '$HOSTLIST'"
+
+checkTmpPath
+
+# Added by zhupeng@sccas.cn
+# Gaussian09 should not run more than 32 CPU/cores
+#
+#if [ $cpus -le 32 ] ; then
+   g09 $1
+#else
+#   echo "Lenovo7000 DO NOT support Gaussian09 running with more than 32 CPUs/cores !"
+#fi

@@ -1,0 +1,32 @@
+install numpy in any directory
+python setup.py install --prefix=/home/bao/installtest
+and
+export it in PYTHONPATH env.
+
+energy to real
+
+gau_create
+gau_overlap
+gau_nac
+
+&
+mix
+
+finally
+X+y OR X OR F OR XF
+
+
+how to fix outer layer atoms
+
+sbmd
+lang
+frozen..
+etc.
+
+other task
+include
+how to qm/mm or oniom
+
+and so on
+
+

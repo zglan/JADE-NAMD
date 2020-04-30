@@ -1,0 +1,60 @@
+ Charge=              0.0000 electrons
+ Dipole moment (field-independent basis, Debye):
+    X=              2.3702    Y=              3.3474    Z=              0.0000  Tot=              4.1015
+ Quadrupole moment (field-independent basis, Debye-Ang):
+   XX=             -9.3808   YY=             -9.0486   ZZ=             -7.1260
+   XY=             -8.1138   XZ=              0.0000   YZ=              0.0000
+ Traceless Quadrupole moment (field-independent basis, Debye-Ang):
+   XX=             -0.8623   YY=             -0.5301   ZZ=              1.3925
+   XY=             -8.1138   XZ=              0.0000   YZ=              0.0000
+ Octapole moment (field-independent basis, Debye-Ang**2):
+  XXX=             14.6232  YYY=             60.1666  ZZZ=              0.0000  XYY=              4.6755
+  XXY=             23.9422  XXZ=              0.0000  XZZ=              2.3274  YZZ=             15.2085
+  YYZ=              0.0000  XYZ=              0.0000
+ Hexadecapole moment (field-independent basis, Debye-Ang**3):
+ XXXX=            -23.0824 YYYY=           -215.7657 ZZZZ=             -5.1146 XXXY=            -45.0275
+ XXXZ=              0.0000 YYYX=            -48.5160 YYYZ=              0.0000 ZZZX=              0.0000
+ ZZZY=              0.0000 XXYY=            -10.6130 XXZZ=             -2.8228 YYZZ=            -34.4528
+ XXYZ=              0.0000 YYXZ=              0.0000 ZZXY=             -4.8565
+--------------------------------------------------
+ 1PDM for each excited state written to RWF  633
+ Ground to excited state transition densities written to RWF  633
+ Ground to excited state transition electric dipole moments (Au):
+       state          X           Y           Z        Dip. S.      Osc.
+         1         0.0000      0.0000      0.2660      0.0708      0.0137
+         2         0.0000      0.0000     -0.0113      0.0001      0.0000
+         3         0.3204      0.4855      0.0000      0.3384      0.0840
+ Ground to excited state transition velocity dipole moments (Au):
+       state          X           Y           Z        Dip. S.      Osc.
+         1         0.0000      0.0000     -0.1674      0.0280      0.0644
+         2         0.0000      0.0000      0.0072      0.0001      0.0001
+         3        -0.1624     -0.2400      0.0000      0.0840      0.1504
+ Ground to excited state transition magnetic dipole moments (Au):
+       state          X           Y           Z
+         1         0.4795      0.0200      0.0000
+         2        -0.2013     -0.2490      0.0000
+         3         0.0000      0.0000     -0.4909
+ Ground to excited state transition velocity quadrupole moments (Au):
+       state          XX          YY          ZZ          XY          XZ          YZ
+         1         0.0000      0.0000      0.0000      0.0000      0.0332      0.5644
+         2         0.0000      0.0000      0.0000      0.0000      0.2033     -0.1704
+         3         0.0051      1.6776     -0.0049      0.7388      0.0000      0.0000
+ <0|del|b> * <b|rxdel|0> + <0|del|b> * <b|delr+rdel|0>
+ Rotatory Strengths (R) in cgs (10**-40 erg-esu-cm/Gauss)
+       state          XX          YY          ZZ    R(velocity)    E-M Angle
+         1         0.0000      0.0000      0.0000      0.0000       90.00
+         2         0.0000      0.0000      0.0000      0.0000       90.00
+         3         0.0000      0.0000      0.0000      0.0000       90.00
+ 1/2[<0|r|b>*<b|rxdel|0> + (<0|rxdel|b>*<b|r|0>)*]
+ Rotatory Strengths (R) in cgs (10**-40 erg-esu-cm/Gauss)
+       state          XX          YY          ZZ     R(length)
+         1         0.0000      0.0000      0.0000      0.0000
+         2         0.0000      0.0000      0.0000      0.0000
+         3         0.0000      0.0000      0.0000      0.0000
+  1/2[<0|del|b>*<b|r|0> + (<0|r|b>*<b|del|0>)*] (Au)
+       state          X           Y           Z        Dip. S.   Osc.(frdel)
+         1         0.0000      0.0000     -0.0445      0.0445      0.0297
+         2         0.0000      0.0000     -0.0001      0.0001      0.0001
+         3        -0.0520     -0.1165      0.0000      0.1686      0.1124
+
+--------------------------------------------------

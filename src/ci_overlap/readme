@@ -1,0 +1,20 @@
+# 
+mo-->csf 	determinant
+ao-->mo		orbital
+<csf|csf>	csf
+<phii|phij>	state
+Matrix[:]	wf
+pack it 	main
+
+the qm_interface geometry was given in atomic unit.
+
+# note:
+the turbomole & gaussian & gamessus interface was confirmed, 
+and they will output same value of CI VECTOR if the computational level is consist
+and if the control param is seted.
+
+gaussian only give force in log file, i need to conver it to gradient, by -force
+
+detail formula, see:
+U. Werner et al. / Chemical Physics 349 (2008) 319¨C324
+

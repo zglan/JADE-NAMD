@@ -1,0 +1,12 @@
+
+ESP input for gaussian
+
+# hf/6-31g* SCF=tight Test Pop=MK iop(6/33=2,6/42=6)
+
+-----------------
+
+use gaussian 09
+antechamber -i ch2nh2p.log -fi gout -o ch2nh2p.mol2 -fo mol2 -c resp
+
+----------------
+

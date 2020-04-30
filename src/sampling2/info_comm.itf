@@ -1,0 +1,10 @@
+!
+!     ----- Variables in common for the program -----
+!
+      integer ::   nr, nbin
+      integer ::   n_atom, n_mode
+ 
+
+      common /random/ nr, nbin
+      common /normal/ n_atom, n_mode
+

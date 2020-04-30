@@ -1,0 +1,23 @@
+{
+    "root": "./",
+    "dirs": {
+        "home": "QC_TMP",
+        "work": "MNDO_TMP",
+        "template": "MNDO_EXAM"
+    },
+    "files": {
+        "dyn": "inp.json",
+        "interface": "interface.json",
+        "template": "template.json",
+        "map": "imomap.dat",
+        "mndo_template": "mndo_template.inp",
+        "mndo_log": "mndo.log",
+        "mndo_fort": "fort.15",
+        "mndo_input": "mndo.inp"
+    },
+    "command": {
+        "mndo": "mndo99"
+    }
+
+}     
+

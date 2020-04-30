@@ -1,0 +1,32 @@
+{
+    "root": "./",
+    "dirs": {
+        "home": "QC_TMP",
+        "work": "GAU_TMP",
+        "work_prev": "GAU_TMP_PREV",
+        "overlap": "OVERLAP",
+        "template": "GAU_EXAM",
+        "onlyinput": "ONLYINPUT",
+        "nac": "NAC"
+    },
+    "files": {
+        "dyn": "inp.json",
+        "interface": "interface.json",
+        "template": "template.json",
+        "layer": "layer.json",
+        "onlyinput": "onlyinputfiles",
+        "gau_template": "gau_template.gjf",
+        "high-model-inp": "high-model.gjf",
+        "high-model-chk": "high-model.chk",
+        "high-model-log": "high-model.log",
+        "ao-overlap-inp": "high-model-overlap.gjf",
+        "ao-overlap-log": "high-model-overlap.log",
+        "dimension": "dimension.json"
+    },
+    "command": {
+        "exec": "g09"
+    }
+
+}     
+
+

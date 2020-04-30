@@ -1,0 +1,28 @@
+$molecule
+0 1
+C           0  0  0.0
+O           0  0  1.21
+$end
+
+$rem
+EXCHANGE            B3lyp
+CIS_N_ROOTS         10
+cis_singlets        true
+cis_triplets        true
+RPA                 TRUE
+BASIS               6-31+G*
+XC_GRID             1
+solvent_method      pcm
+$end
+
+$pcm
+Theory      CPCM
+Method      SWIG
+Solver      Inversion
+Radii       Bondi
+$end
+
+$solvent
+Dielectric         78.39
+OpticalDielectric  1.777849
+$end

@@ -1,0 +1,20 @@
+dir in base 
+cp file in Gau
+
+nocc nvir nbf should dumped 
+
+read rwf for data.
+%rwf=td.rwf
+# force 
+
+read punch for data. fort.7
+force punch=(Coord, Derivatives, MO, Archive)
+
+read PES.out
+op(7/32=3,9/40=20)
+
+gaussian gradient:
+only force is give in log file, use -force to get gradient.
+
+
+

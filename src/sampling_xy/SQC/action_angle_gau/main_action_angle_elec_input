@@ -1,0 +1,5 @@
+2      # n_mode
+2000   # n_traj
+ini_n_elec.inp  # filename of initial n(occupation)
+1      # gamma
+0.5      # sigma

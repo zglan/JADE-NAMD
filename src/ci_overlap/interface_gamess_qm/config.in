@@ -1,0 +1,38 @@
+{
+    "root": "./",
+    "dirs": {
+        "home": "QC_TMP",
+        "work": "GMS_TMP",
+        "work_prev": "GMS_TMP_PREV",
+        "overlap": "OVERLAP",
+        "template": "GMS_EXAM",
+        "nac": "NAC",
+        "userscr": "scr"
+    },
+    "files": {
+        "dyn": "inp.json",
+        "interface": "interface.json",
+        "template": "template.json",
+        "gms_template": "gms_template.inp",
+        "job_log": "gamess.log",
+        "job_log2": "gamess2.log",
+        "job_dat": "gamess.dat",
+        "job_dat2": "gamess2.dat",
+        "job_inp": "gamess.inp",
+        "job_inp2": "gamess2.inp",
+        "dimension": "dimension.json"
+    },
+    "command": {
+        "exec": "rungms",
+        "GMS_VERSION_NO": "06",
+        "GMS_N_CPU": "2"
+    },
+    "constant": {
+        "BOHR2ANGSTROM": "0.529177249"
+    }
+
+
+
+}     
+
+

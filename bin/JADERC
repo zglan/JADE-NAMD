@@ -1,0 +1,26 @@
+#! /usr/bin/env bash
+# suppose the JADE_HOME env. is exported
+#
+# i.e. 
+# export JADE_HOME=/home/dulikai/tree/jade/
+export JADE_HOME=/home-gg/users/nscc540_WJ/hudp/cal/jade_mapping
+
+# binary
+export PATH=$JADE_HOME/bin:$PATH
+
+# # interface
+export JADE_HOME_INTERFACE=$JADE_HOME/src/ci_overlap
+export PATH=$JADE_HOME_INTERFACE:$PATH
+## kkr
+export JADE_HOME_INTERFACE=$JADE_HOME/src/kkr
+export PATH=$JADE_HOME_INTERFACE:$PATH
+# # sampling
+export JADE_HOME_SAMPLE=$JADE_HOME/src/sampling2
+export PATH=$JADE_HOME_SAMPLE:$PATH
+# # pop
+export JADE_POPULATION=$JADE_HOME/contrib/population_ana
+export PATH=$JADE_POPULATION:$PATH
+# # contrib : analysis tools
+export JADE_CONTRIB=$JADE_HOME/contrib
+export PATH=$JADE_CONTRIB:$PATH
+#
