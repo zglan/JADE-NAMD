@@ -60,7 +60,7 @@ If you find any problem in our code, please send email to Prof. Zhenggang Lan. (
 
 2.	Deping Hu, Yan Fang Liu, Andrzej L. Sobolewski, Zhenggang Lan*; Nonadiabatic dynamics simulation of keto isocytosine: a comparison of dynamical performance of different electronic-structure methods; Phys. Chem. Chem. Phys., 19, 19168-19177, (2017).
 
-3． D. Hu, Y. Xie, X Li, L. Li, Z Lan*, Inclusion of Machine Learning Kernel Ridge Regression Potential Energy Surfaces in On-the-Fly Nonadiabatic Molecular Dynamics Simulation. J. Phys. Chem. Lett., 9, 2725-2732 (2018).
+3. D. Hu, Y. Xie, X Li, L. Li, Z Lan*, Inclusion of Machine Learning Kernel Ridge Regression Potential Energy Surfaces in On-the-Fly Nonadiabatic Molecular Dynamics Simulation. J. Phys. Chem. Lett., 9, 2725-2732 (2018).
 
 4. X.Li, D. Hu, Y. Xie, Z. Lan*, Analysis of trajectory similarity and configuration similarity in on-the-fly surface-hopping simulation on multi-channel nonadiabatic photoisomerization dynamics, J. Chem. Phys., 149, 244104 (2018).
 
