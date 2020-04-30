@@ -57,13 +57,22 @@ If you find any problem in our code, please send email to Prof. Zhenggang Lan. (
 # JADE-NAMD package references 
 # A. Method Development
 1.	Likai Du, Zhenggang Lan*; An on-the-fly surface-hopping program JADE for nonadiabatic molecular dynamics of poly-atomic systems: implementation and applications; J. Chem. Theory Comput. 11, 1360-1374 (2015).
+
 2.	Deping Hu, Yan Fang Liu, Andrzej L. Sobolewski, Zhenggang Lan*; Nonadiabatic dynamics simulation of keto isocytosine: a comparison of dynamical performance of different electronic-structure methods; Phys. Chem. Chem. Phys., 19, 19168-19177, (2017).
+
 3． D. Hu, Y. Xie, X Li, L. Li, Z Lan*, Inclusion of Machine Learning Kernel Ridge Regression Potential Energy Surfaces in On-the-Fly Nonadiabatic Molecular Dynamics Simulation. J. Phys. Chem. Lett., 9, 2725-2732 (2018).
+
 4. X.Li, D. Hu, Y. Xie, Z. Lan*, Analysis of trajectory similarity and configuration similarity in on-the-fly surface-hopping simulation on multi-channel nonadiabatic photoisomerization dynamics, J. Chem. Phys., 149, 244104 (2018).
+
 5. X. Li, Y. Xie, D. Hu, Z. Lan*. Analysis of the Geometrical Evolution in On-the-Fly Surface-Hopping Nonadiabatic Dynamics with Machine Learning Dimensionality Reduction Approaches: Classical Multidimensional Scaling and Isometric Feature Mapping, J. Chem. Theory Comput., 13, 4611-4623 (2017).
+
 # B. Application
 6. F. Liu, L. Du, Z. Lan and J. Gao. Liu. Hydrogen Bond Dynamics Governs the Effective Photoprotection Mechanism of Plant Phenolic Sunscreens. Photoch. Photobio. Sci., 16, 211-219 (2017).
+
 7. L. Du, and Z. Lan*, Ultrafast Structural Flattening Motion in Photoinduced Excited State Dynamics of a Bis(dimine) Copper(I) Complex, Phys. Chem. Chem. Phys., 18, 7641-7650 (2016).
+
 8. D. Hu, J. Huang, Y. Xie, L. Yue, X. Zhuang, Z. Lan*, Nonadiabatic Dynamics and Photoisomerization of Biomimetic Photoswitches, Chem. Phys., 463, 95-105 (2015).
+
 9. J. Wang, J. Huang, L. Du, Z. Lan*, Photoinduced Ultrafast Intramolecular Excited-State Energy Transfer in the Silylene-Bridged Biphenyl and Stilbene (SBS) System: A Nonadiabatic Dynamics Point of View, J. Phys. Chem. A, 119, 6937-6948 (2015).
+
 10. J. Huang, L. Du, J. Wang, Z. Lan*, Photoinduced Excited-State Energy-Transfer Dynamics of a Nitrogen-Cored Symmetric Dendrimer: From the Perspective of the Jahn-Teller Effect, J. Phys. Chem. C, 119, 7578-7589 (2015).
