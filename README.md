@@ -9,7 +9,7 @@ The JADE-NAMD package is mainly developed for the simulation of the nonadiabatic
 # History and Old Version
 The development of the JADE code starts from several years ago. This code is initialized in the year of 2014-2015 in the group of Prof. Zhenggang Lan when he was in QIBEBT, Qingdao, China. The first version is mainly developed by Dr. Likai Du and Dr. Zhenggang Lan, which is found also in Github (https://github.com/jade-package/JADE). In these years, several people also made some important contributions, which include Dr. Yu Xie, Dr. Deping Hu, Dr. Jing Huang, Dr. Xusong Li and Ms. Jiawei Peng.
 
-Since Sept 2018, Prof. Zhenggang Lan moved to Souch China Normal University. In these years, many new features are implemented. Thus we decide to release a new version of JADE. Also we noticed that many packages are named as "JADE". To avoid confusing, the new package is namded "JADE-NAMD".
+Since Sept 2018, Prof. Zhenggang Lan moved to Souch China Normal University. In these years, many new features are implemented. Thus we decide to release a new version of JADE. Also we noticed that many packages are named as "JADE". To avoid confusing, the new package is re-namded "JADE-NAMD".
 
 We will try to make this code more formal in the future. For instance, we will try to update this code more often than previous time. The more features will be added and the more turtorials are given.
 
