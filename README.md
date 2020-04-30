@@ -64,8 +64,7 @@ Method Development
 Application
 
 6. F. Liu, L. Du, Z. Lan and J. Gao. Liu. Hydrogen Bond Dynamics Governs the Effective Photoprotection Mechanism of Plant Phenolic Sunscreens. Photoch. Photobio. Sci., 16, 211-219 (2017).
-
-7．L. Du, and Z. Lan*, Ultrafast Structural Flattening Motion in Photoinduced Excited State Dynamics of a Bis(dimine) Copper(I) Complex, Phys. Chem. Chem. Phys., 18, 7641-7650 (2016).
+7. L. Du, and Z. Lan*, Ultrafast Structural Flattening Motion in Photoinduced Excited State Dynamics of a Bis(dimine) Copper(I) Complex, Phys. Chem. Chem. Phys., 18, 7641-7650 (2016).
 
 8. D. Hu, J. Huang, Y. Xie, L. Yue, X. Zhuang, Z. Lan*, Nonadiabatic Dynamics and Photoisomerization of Biomimetic Photoswitches, Chem. Phys., 463, 95-105 (2015).
 
