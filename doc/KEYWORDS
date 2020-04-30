@@ -1,0 +1,140 @@
+A very brief user guide
+
+----
+
+Here, we give a brief introduction of the dynamics keywords of the program. 
+The algorithm of the TSH dynamics could be summerized as follows.
+1. Prepare the initial nuclear coordinates and velocity, i.e. Wigner sampling (sampling.py in JADE); 
+and set up the initial electronic state (i_state keyword in JADE).
+2. Time propagation of coordinates and velocities on the selected PES (jade.exe in JADE).
+3. Computation of energies, gradients, and nonadiabatic coupling vectors of all relevant states at new position and velocity.
+4. Time propagation of quantum amplitudes, compare the random number with computation of hopping probabilities.
+5. If hopping is performed: velocity adjustment and update of the active PES for molecular dynamics.
+6. Back to point 2.
+7. Statistical analysis of the dynamics results (statistical analysis tools in JADE)
+
+
+The keywords to control the dynamics procedure in JADE are organized with Fortran namelist, 
+and supported by both Fortran and Python modules. 
+Most of commonly used namelist variables are &control, &quantum, &langevin etc. 
+For example, a typical configure input of the TSH dynamics is given in the $JADE_HOME/test directory. 
+Restart of the simulation is possible by setting label_restart to 1.
+
+=================
+KEYWORD LIST
+Version 1.0 alpha
+================
+The following keywords should be set up in a file named "dyn.inp" see $JADE_HOME/test
+
+&control
+manage the dynamics process
+
+dyn_method: control the dynamic method
+1: surface hopping with analytical NAC vector. currently support MNDO program.
+2: surface hopping with numerical NAC. support TURBOMOLE, GAUSSIAN,GAMESS(US)
+201: surface hopping with numerical NAC, as well as Langevin Dynamics. support TURBOMOLE, GAUSSIAN,GAMESS(US)
+
+ntime: number of dynamics steps
+dtime: the nuclear motion time step, unit with fs
+ntime_ele: how many step of electronic propagation within one 'dtime'
+n_sav_stat, n_sav_traj: how many step to save the status and trajectory
+n_state: total number of electronic state in surface-hopping dynamics simulation
+md_state_list: exciplictly provide the electronic state
+i_state: the initial electronic state
+cor_dec: Decoherent correction factor, unit with Hartree
+
+seed_random: seed of random number
+
+label_nac_phase: How to treat the phase of NAC
+0: Do not follow the phase of NAC
+1: follow the phase of NAC
+
+label_reject_hops: how to treat the hops
+0: Do not reject the hops with large energy gap
+1: Reject the hops when energy gap is larger than,"hop_e" eV
+hop_e: the largest energy gap to reject hops
+units eV
+
+label_read_velocity: if read the velocity at the start of the dynamics
+0: do not read
+1: read
+
+label_restart: if a restartable dynamics?
+0: a new dynamics
+1: restart flag
+
+&langevin
+gamma0: the friction 
+unit fs^-1
+temperature: temperature of the system, a thermo
+unit K
+
+&quantum
+qm_method: supported QM method
+1:  semi-emperical method in MNDO
+2:  casscf and caspt2 method in molpro
+3:  kkr regression
+11: TD-DFT (RPA/TDA) CIS TDHF
+12: RICC2
+
+qm_package: which QC package is used.
+101: Turbomole
+102: Gaussian 03 or 09
+103: Gamess (us)
+105: Molpro
+
+ci_assign_problem: use X or X+Y in CIS assignment
+X: use X vector
+X+Y: use X+Y vector
+
+is_do_cis_casida: if the CI vector is scaled by \sqrt{\frac{\epsilon_a-\epsilon_i}{\omega_K}}
+yes: scaled
+no: not scaled
+
+for gaussian interface
+ci_td_use_file_type: where to read the X, Y vector and MO information
+log: read directly from gaussian log file, one need to setup the related IOp
+chk: read chk file, use rwfdump command.
+
+
+
+the following is a typical input file.
+in general, the &control and &quantum is necessary for any dynamics
+
+
+&control
+dyn_method = 201,
+ntime = 1000,
+dtime = 0.2,
+ntime_ele = 100,
+n_sav_stat = 1,
+n_sav_traj = 1,
+qm_method = 11,
+n_state = 3,
+md_state_list = "1, 2, 3",
+i_state = 3,
+seed_random = 2014,
+cor_dec = 0.1,
+label_nac_phase = 1,
+label_reject_hops = 1,
+hop_e = 10,
+label_read_velocity = 0,
+label_restart = 0,
+/
+
+
+&langevin
+gamma0 = 0.001
+temperature = 300.0
+/
+
+&quantum
+qm_method = 11,
+qm_package = 102,
+ci_td_use_file_type = "log",
+ci_assign_problem = "X+Y",
+is_do_cis_casida = "yes",
+/
+
+
+

@@ -1,0 +1,16 @@
+[wigner]
+n_atom = 6
+n_mode = 12
+label_random = 1
+nr = 5000
+nbin = 50  ! used to check random
+label_read_vib = 1
+label_es_output = 3
+filename_es_output = freq.log
+label_displacement = 1
+label_dis_wigner = 1
+n_geom = 1000
+label_frozen = 0
+number_frozen = 2
+list_frozen = 1, 2
+

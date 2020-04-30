@@ -1,0 +1,20 @@
+Dynamics
+-On-the-fly dynamics surface hopping dynamics
+-the velocity-Verlet algorithm; 
+-fewest switches algorithms
+-Langevin thermostat 
+Interfaces
+-TURBOMOLE (CIS, TD-DFT, RI-CC2, ADC(2))
+-GAUSSIAN (CIS, TD-DFT) 
+-GAMESS (US) (CIS TD-DFT)
+-Q-CHEM (in progress)
+-Molpro (in progress)
+Initial conditions
+-Wigner distribution
+-ground state dynamics
+enviroment effects
+-Langevin dynamics
+-effective fragment potential (interface with Gamess-US & Q-CHEM) in process
+Output and analysis
+-Statistical analysis of results
+-transition density analysis tools
