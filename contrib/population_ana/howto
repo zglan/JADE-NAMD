@@ -1,0 +1,38 @@
+usage:
+main_pop.exe < main_pop.inp
+
+
+main_pop.inp:
+--------------------------------------
+           read (*,*)
+38         read (*,*) n_atom
+364        read (*,*) n_ao
+79         read (*,*) n_occ
+285         read (*,*) n_vir
+           read (*,*)
+21          read (*,*) n_state
+           read (*,*)
+4          read (*,*) type_input
+x           read (*,*) filename_input1
+x           read (*,*) filename_input2
+x           read (*,*) filename_input3
+x           read (*,*) filename_input4
+x           read (*,*) filename_input5
+x           read (*,*)
+1          read (*,*) output_level
+1.out      read (*,*) filename_output
+-----------------------------------------
+
+the most important is n_atom, n_ao, n_occ, n_vir, n_state
+type_input:
+0: standard type
+1: turbomole tddft
+2: turbomole ricc
+3: orca
+4: gaussian
+
+normally, you can directly call main_pop.exe
+or
+you may call gaussian_read.py, and then call main_pop.exe with std. type.
+
+

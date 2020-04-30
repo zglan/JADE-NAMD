@@ -1,0 +1,16 @@
+#awk -f plot.awk anix.dat > ani.dat
+gnuplot << EOF
+
+
+set terminal jpeg  enhanced 
+set output "pop_aver.jpg"
+
+#set terminal postscript color  enhanced
+#set output "anix.eps"
+
+plot './pop_aver.dat' u 2:3, './pop_aver.dat' u 2:4, './pop_aver.dat' u 2:5
+set output
+quit
+EOF
+
+

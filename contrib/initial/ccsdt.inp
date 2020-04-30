@@ -1,0 +1,35 @@
+! Enter $LMOEDA instead of $MOROKM for an alternative
+! energy analysis, supporting many more calculations.
+!
+ $contrl scftyp=rhf runtyp=eda coord=unique nosym=1
+         icharg=0 mult=1 ispher=1
+         MPLEVL=2
+ $end
+ $system timlim=100000  mwords=500 memddi=2000 $end
+ $basis GBASIS=ACCD $end
+ $guess  guess=huckel $end
+ $LMOEDA matom(1)=12,4 mcharg(1)=0,0 mmult(1)=1,1 $end
+
+ $data
+water-ammonia dimer...4-31G basis set
+c1
+C 6.0   2.607583   -1.063450   -0.572712
+C 6.0   4.002743   -1.063137   -0.572803
+C 6.0   4.700080    0.000104    0.000311
+C 6.0   4.002225    1.064269    0.572821
+C 6.0   2.607400    1.064115    0.572454
+C 6.0   1.910000    0.000000    0.000000
+H 1.0   2.057983   -1.902034   -1.024219
+H 1.0   4.552410   -1.902058   -1.023713
+H 1.0   5.799760    0.000120    0.000836
+H 1.0   4.552267    1.902515    1.024590
+H 1.0   2.057120    1.902660    1.023573
+Br 35.0   0.000000    0.000000    0.000000
+C 6.0  -4.627317   -0.000000    0.000000
+O 8.0  -3.400000    0.000000    0.000000
+H 1.0  -5.219462    0.826873    0.445826
+H 1.0  -5.219462   -0.826892   -0.445791
+ $end
+
+ 
+ 

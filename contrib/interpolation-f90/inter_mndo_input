@@ -1,0 +1,6 @@
+40                                  read (*,*) n_atom
+d3-S1min-BHLYP.zmatrix                 read (*,*) file1
+c1-S1min-BHLYP.zmatrix                  read (*,*) file2
+struc-S0-ci                         read (*,*) file3
+8                                  read (*,*) n_step
+
