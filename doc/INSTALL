@@ -1,0 +1,63 @@
+INSTALL 
+
+--------------
+
+How To Obtain
+A stable version of JADE package can currently be directly from the https://github.com/jade-package
+
+Currently, the JADE package is public accessible at github.com (a web-based Git repository hosting service). 
+People who are interesting with the JADE program is direct to http://github.com/jade-package. 
+A stable version of the JADE source code with the capability in this manuscript can be directly downloaded 
+or by simply entering a git clone command. 
+Since the JADE program is at the stage of rapid development, people are also welcomed to contact the authors 
+to require the code with more features. 
+
+--------------
+In order to install and run JADE, you need the following:
+o A Fortran90 compiler, This version has been tested against GNU Fortran (>4.4) and Intel Fortran (>11.0).
+o The BLAS, LAPACK libraries, the intel mkl is preferred, if possible.
+o Python 2 (version no. > 2.6) 
+
+Suppose the package has been download at a new directory, named jade/
+which should contains all the necessary subdirectories & files.
+
+To compile the Fortran90 programs of the JADE package, go to the src/ directory.
+cd src/
+and edit the compiler.mk by adjusting the F90 variable to point to the Fortran compiler of your choice.
+Issuing the command:
+make
+will compile the source and create all the binaries.
+make install
+will copy the binary files into the jade/bin/ directory.
+
+if the compilation is successful
+then, set the environment variable $JADE_HOME to the jade/ directory 
+For example, if you have unpacked jade into your home directory, just set:
+export JADE_HOME=~/jade (for bourne shell users)
+or
+setenv JADE_HOME $HOME/jade (for c-shell type users)
+please note that it is advisable to put this line into your shell's login scripts.
+finally, source the JADERC configuration
+source ${JADE_HOME}/JADERC
+
+END
+
+----------------
+Quantum Chemistry Programs
+Because, the main application of JADE is certainly on-the-fly ab initio
+dynamics. Hence, one of the following interfaced quantum chemistry programs is necessary:
+o GAUSSIAN 03 or Gaussian 09
+o Turbomole (tested against version no. > 6.1)
+o GAMESS (US)(tested against version at 17 May 2013)
+See the tests directory for the sample input of the quantum chemical methods available
+with each of these programs.
+
+
+
+
+
+ 
+
+
+
+
