@@ -1,0 +1,61 @@
+model builder
+
+1. use vmd or packmol to generate the model of the system.
+I suggested to use packmol for solvent model
+
+in chinese
+http://simulation.haotui.com/viewthread.php?tid=34723
+
+see 
+http://www.ime.unicamp.br/~martinez/packmol/
+
+input-file:
+-------------------------------------
+tolerance 2.0
+
+filetype pdb
+
+structure solute.pdb
+  number 1
+  fixed 0. 0. 0. 0. 0. 0.
+  centerofmass
+end structure
+
+structure water.pdb
+  number 16000
+  inside sphere 0. 0. 0. 50.
+end structure
+
+
+output mix.pdb
+
+-------------------------------------
+rho = m/v = M*NA*n / v
+v = (4/3) * pi * R^3
+mix.pdb
+
+====================================
+
+
+HOW TO DEAL WITH ONIOM MODEL
+
+1. MODEL BUILDER
+PACKMOL IS OK
+
+2. PARAMETER SETS
+HOW? SCRIPTS? TAO?
+
+3. HOW TO FIX ATOMS
+
+
+4. HOW TO RUN ADMP
+
+5. HOW TO ANALYZE MD RESULTS
+
+
+
+
+
+
+
+

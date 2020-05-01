@@ -1,0 +1,4 @@
+2      # n_mode
+2   # n_traj
+ini_n_elec.inp  # filename of initial n(occupation)
+0

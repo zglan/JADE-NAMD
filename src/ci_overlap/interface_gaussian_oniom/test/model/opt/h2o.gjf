@@ -1,0 +1,14 @@
+%chk=G:\tree\Gitlib\jade\src\ci_overlap\interface_gaussian_oniom\test\model\opt\h2o.chk
+# hf/3-21g geom=connectivity
+
+Title Card Required
+
+0 1
+ O                 -0.08715895   -0.24618189   -0.03121262
+ H                  0.87284105   -0.24618189   -0.03121262
+ H                 -0.40761354    0.65875394   -0.03121262
+
+ 1 2 1.0 3 1.0
+ 2
+ 3
+

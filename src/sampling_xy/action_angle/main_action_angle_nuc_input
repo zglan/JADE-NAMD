@@ -1,0 +1,3 @@
+3      # n_mode
+2000   # n_traj
+ini_n_nuc.inp  # filename of initial n(occupation)

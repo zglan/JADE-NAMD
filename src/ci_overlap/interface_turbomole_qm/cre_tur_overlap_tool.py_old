@@ -1,0 +1,338 @@
+#!/usr/bin/python
+import os
+import sys
+from operator import itemgetter
+import re
+import math
+import shutil 
+
+#---------------------------------------------------------------------------
+
+#  Creat the coordinates for double-molecule 
+def creat_falk_coord (n_atom) :
+
+
+    fileout1=open('coord_double','w')
+    fileout1.write('$coord   \n')
+
+  
+    n_line = 0
+    filein1=open('coord1','r')
+    for line in filein1:
+        n_line += 1
+    filein1.close()
+
+    line_each = []
+    for i_line in range(n_line):
+        line_each.append(0.0)
+
+    filein1=open('coord1','r')
+    line_all=filein1.read()
+    filein1.close()
+    line_each=line_all.split('\n')
+
+    for i_line in range(1,n_atom+1) :
+        fileout1.write(''+str( line_each[i_line])+' \n')
+    
+    n_line = 0
+    filein1=open('coord2','r')
+    for line in filein1:
+        n_line += 1
+    filein1.close()
+
+    line_each = []
+    for i_line in range(n_line):
+        line_each.append(0.0)
+
+    filein1=open('coord2','r')
+    line_all=filein1.read()
+    filein1.close()
+    line_each=line_all.split('\n')
+
+    for i_line in range(1,n_atom+1) :
+        fileout1.write(''+str( line_each[i_line])+' \n')
+
+
+    
+    fileout1.write('$user-defined bonds \n')
+    fileout1.write('$end')
+    fileout1.close()
+    
+    sourceFile = 'coord_double'
+    destFile   = 'coord'
+    shutil.copyfile("./coord_double", "./coord")
+
+
+
+
+#  Create falk control file for double molecule input
+
+
+def  create_falk_control (n_atom) :
+
+
+    n_line = 0
+    filein1=open('control','r')
+    for line in filein1:
+        n_line += 1
+    filein1.close()
+
+    line_each = []
+    for i_line in range(n_line):
+        line_each.append(0.0)
+
+    filein1=open('control','r')
+    line_all=filein1.read()
+    filein1.close()
+    line_each=line_all.split('\n')
+
+
+    line_delete_1= ""
+    line_delete_2= ""
+    line_delete_3= ""
+    line_delete_4= ""
+    line_delete_5= ""
+    line_delete_6= ""
+
+#   Change the states involved
+    for i_line in range(n_line):
+
+        i_find_delete = re.search('\$statistics', line_each[i_line])
+        if  i_find_delete is not None:
+            line_delete_1 = line_each[i_line]
+        i_find_delete = re.search('MPP', line_each[i_line])
+        if  i_find_delete is not None:
+            line_delete_2 = line_each[i_line]
+        i_find_delete = re.search('\$numprocs', line_each[i_line])
+        if  i_find_delete is not None:
+            line_delete_3 = line_each[i_line]
+        i_find_delete = re.search('\$exopt', line_each[i_line])
+        if  i_find_delete is not None:
+            line_delete_4 = line_each[i_line]
+        i_find_delete = re.search('\$metastase', line_each[i_line])
+        if  i_find_delete is not None:
+            line_delete_5 = line_each[i_line]
+	i_find_delete = re.search('\$2e-ints_shell_statistics', line_each[i_line])
+	if  i_find_delete is not None:
+            line_delete_6 = line_each[i_line]
+
+
+
+	i_find_basis_1 = None
+	i_find_basis_2 = None
+	i_find_basis_3 = None
+
+	i_find_basis_1 = re.search("basis", line_each[i_line])
+        if  i_find_basis_1 is not None:
+            i_find_basis_2 = re.search("file", line_each[i_line])		
+            if i_find_basis_2 is None:
+	       i_find_basis_3 = re.search("=", line_each[i_line])	     
+
+
+#	print "Line contents", line_each[i_line]
+        if  i_find_basis_3 is not None:
+#	    print "line", i_line	
+	    i_line =i_line-1
+	    tmp_str = line_each[i_line]
+#	    print "tmp_str", tmp_str
+            tmp_str=tmp_str.replace(",", "   ,   ")
+	    tmp_str=tmp_str.replace("-", "   -   ")
+            basis_line = []
+#	    print "tmp_str", tmp_str
+#	    print "The last element is", tmp_str[-1]
+	    for i_e in range(100000):
+#		print i_e, tmp_str.split()[i_e]     
+		if tmp_str.split()[i_e] != tmp_str[-1] :
+                   basis_line.append( tmp_str.split()[i_e] )
+		else:
+	           break
+            n_e = i_e
+	    for i_e in range(1,100000):
+		if tmp_str.split()[i_e] != tmp_str[-1] :
+		   basis_line.append( tmp_str.split()[i_e] )
+		else:
+		   break
+            
+#	    print "basis_line", basis_line
+      
+      
+            for i_e in range(n_e , 2*n_e-1): 
+#		print i_e, basis_line[i_e]
+                if  basis_line[i_e] != "-" :
+                    if basis_line[i_e] != ",":
+			if basis_line[i_e] != tmp_str[-1] :                 
+                           basis_line[i_e] = str( n_atom +  int(basis_line[i_e])) 
+              
+#            print "basis_line", basis_line      
+            basis_string = basis_line[0]
+	    basis_string = basis_string + "    "
+	    for i_e in range(1, n_e) :
+		basis_string = basis_string + basis_line[i_e]
+	    basis_string = basis_string + ",    "	
+	    for i_e in range(n_e, 2*n_e-1) : 
+                basis_string = basis_string + basis_line[i_e]
+	    basis_string = basis_string + "                                                     \\" 
+ 
+            line_each[i_line] = basis_string
+#            print line_each[i_line]
+            i_line=i_line+1
+
+        i_find_basis = re.search('fock', line_each[i_line])
+#	print  line_each[i_line], i_find_basis
+        if  i_find_basis is not None:
+            i_find_basis = re.search('dens', line_each[i_line])		 
+            if  i_find_basis is not None:
+	        line_each[i_line] = line_each[i_line].replace("=", "   =   ");
+                tmp_line= []
+	        for i_e in range(3):
+#	            print line_each[i_line].split()[i_e]		
+                    tmp_line.append( line_each[i_line].split()[i_e]  )
+                tmp_line[2] = str( 4* int(tmp_line[2]) )
+                tmp_string = '   '
+	        for i_e in range(3) :        
+                    tmp_string = tmp_string + tmp_line[i_e]
+                line_each[i_line] = tmp_string
+
+
+        i_find_basis = re.search('natoms=', line_each[i_line])
+        if  i_find_basis is not None:
+            line_each[i_line] = line_each[i_line].replace("=", "  =  ");
+            tmp_line= []
+	    for i_e in range(3) :
+                tmp_line.append( line_each[i_line].split()[i_e]  )
+            tmp_line[2] = str( 2* int(tmp_line[2]) )
+            tmp_string = '   '       
+	    for i_e in range(3):
+                tmp_string = tmp_string + tmp_line[i_e]
+            line_each[i_line] = tmp_string
+
+
+        i_find_basis = re.search('nshell=', line_each[i_line])
+        if  i_find_basis is not None:
+            line_each[i_line] = line_each[i_line].replace("=", "  =  ");
+            tmp_line= []
+	    for i_e in range(3):
+                tmp_line.append( line_each[i_line].split()[i_e]  )
+            tmp_line[2] = str( 2* int (tmp_line[2]) )
+            tmp_string = '   '
+	    for i_e in range(3):
+                tmp_string = tmp_string + tmp_line[i_e]
+            line_each[i_line] = tmp_string
+
+
+        i_find_basis = re.search('nbf', line_each[i_line])
+        if  i_find_basis is not None:
+            i_find_basis = re.search('CAO', line_each[i_line])
+	    if  i_find_basis is not None:
+                 line_each[i_line] = line_each[i_line].replace("=", "  =  ");
+                 tmp_line= []
+                 for i_e in range(3):
+                     tmp_line.append( line_each[i_line].split()[i_e]  )
+                 tmp_line[2] = str( 2* int(tmp_line[2]))
+                 tmp_string = '   '
+                 for i_e in range(3):
+                     tmp_string = tmp_string + tmp_line[i_e]
+                 line_each[i_line] = tmp_string
+
+
+        i_find_basis = re.search('nbf', line_each[i_line])
+        if  i_find_basis is not None:
+            i_find_basis = re.search('CAO', line_each[i_line])
+	    if  i_find_basis is None:
+		i_find_basis = re.search('AO', line_each[i_line])    
+		if  i_find_basis is not None:
+                      line_each[i_line] = line_each[i_line].replace("=", "  =  ");
+                      tmp_line= []
+                      for i_e in range(3):
+                          tmp_line.append( line_each[i_line].split()[i_e]  )
+                      n_basis_double = 2* int( tmp_line[2])
+                      tmp_line[2] = str( n_basis_double)
+                      tmp_string = '   '
+                      for i_e in range(3):
+                          tmp_string = tmp_string + tmp_line[i_e]
+                      line_each[i_line] = tmp_string
+
+
+        i_find_basis = re.search('trafo', line_each[i_line])
+        if  i_find_basis is not None:
+            line_each[i_line] = line_each[i_line].replace("=", "  =  ");
+            tmp_line= []
+	    for i_e in range(3):
+                tmp_line.append( line_each[i_line].split()[i_e] )
+            tmp_line[2] = str(2* int(tmp_line[2]))
+            tmp_string = '   ' 
+	    for i_e in range(3):
+                tmp_string = tmp_string + tmp_line[i_e]
+            line_each[i_line] = tmp_string
+
+
+        i_find_basis = re.search('scfiterlimit', line_each[i_line])
+	if  i_find_basis is not None:
+             tmp_line= []
+	     for i_e in range(2):
+                 tmp_line.append( line_each[i_line].split()[i_e]  )
+             tmp_line[1] = "        0"
+             tmp_string = ''
+	     for i_e in range(2):
+                 tmp_string = tmp_string + tmp_line[i_e]
+             line_each[i_line] = tmp_string
+
+
+
+#    Delete some useless lines
+         
+    if line_delete_1 != '' :
+       line_each.remove(str(line_delete_1))
+    if line_delete_2 != '' :
+       line_each.remove(str(line_delete_2))
+    if line_delete_3 != '' :
+       line_each.remove(str(line_delete_3))
+    if line_delete_4 != '' :
+       line_each.remove(str(line_delete_4))
+    if line_delete_5 != '' :
+       line_each.remove(str(line_delete_5))
+    if line_delete_6 != '' :
+       line_each.remove(str(line_delete_6))
+		    
+
+           
+    n_line_write = len(line_each)
+    debug_line  = '$intsdebug   cao  '
+    line_each.insert(n_line_write-2, str(debug_line))
+
+    
+    n_line_write = len(line_each)
+    fileout2=open('control_new', 'w')
+    for i_line in range(n_line_write):
+        fileout2.write(''+str(line_each[i_line])+' \n')
+    fileout2.close()
+
+    shutil.copyfile("./control_new", "./control")
+
+
+
+
+
+    return (n_basis_double)
+
+#############################################################
+
+
+def create_falk_mos(n_basis_double) :
+
+    fileout3=open('mos_new', 'w')
+    fileout3.write('$scfmo   expanded   format(4d20.14) ')
+    for i_mo in range(n_basis_double) :
+        fileout3.write('\n     '+str(i_mo+1)+'  a      eigenvalue=0.00000000000000D-00   nsaos='+str(n_basis_double)+'')
+	for i_ao in range(n_basis_double) :
+            if ( (i_ao+1) % 4) == 1 :
+               fileout3.write('\n')
+            fileout3.write('0.10000000000000D+00')
+        
+    fileout3.write('\n$end ')
+    fileout3.close()
+    shutil.copyfile("./mos_new", "./mos")
+
+
+if __name__ == "__main__":
+    create_falk_control(80)

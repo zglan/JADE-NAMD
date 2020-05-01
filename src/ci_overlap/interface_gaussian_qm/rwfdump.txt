@@ -1,0 +1,5 @@
+rwfdump td.chk 635R.dat 635R
+rwfdump td.chk 770R.dat 770R
+rwfdump td.chk 522R.dat 522R
+rwfdump td.chk 524R.dat 524R
+

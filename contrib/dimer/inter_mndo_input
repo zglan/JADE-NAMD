@@ -1,0 +1,6 @@
+12                                  read (*,*) n_atom
+1.zmat                 read (*,*) file1
+2.zmat                  read (*,*) file2
+x.zmat                         read (*,*) file3
+10                                  read (*,*) n_step
+

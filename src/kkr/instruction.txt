@@ -1,0 +1,235 @@
+This document explains how to use kernel ridge regression to construct the PES based on the results of the trajectory surface hopping dynamics.
+
+1. Normally, after the trajectory surface hopping calculations, we should get many directories and each of them contains the important result for each trajectory.
+Let us suppose all of these informations are saved in a directory called "./original_data".
+In this directory, we may have a list of directories, which contains the data from trajectory surface hopping simulation. For example ,we should have 
+---------------------------- 
+./1 
+./2  
+.....
+--------------------
+
+In each directory, for example in "./1", the below data files should exist for the next input.
+-------------------------------------------------------------------------
+traj_time.out:      All geometries along trajectory propagation
+pe_time.out:        Time-dependent PES
+current_state.out:  Current state at each time step
+energy_time.out:    Energy and so on
+------------------------------------------------------------------------
+
+If the gradient calculations are required, we should also have
+--------------------------------------------------------------------
+grad_time.out:  Time dependent gradient
+------------------------------------------------------------------
+
+
+2. We need to make all directories for working tasks.
+---------------------------------------------------------------------------------------------------------------------
+mkdir prepare_input_zero
+mkdir data_prescreening 
+mkdir train_test_data_set 
+mkdir train_and_test  
+mkdir test_additional 
+mkdir prediction 
+mkdir gradient_check
+-----------------------------------------------------
+The relevant script is found at 
+/home/lan/code/kkr_code/code/input_file/mkdir.sh
+
+
+3. Generate the input file for the whole task.
+In this step, go to 
+/home/lan/sci/regression/test_regression/kkr_regression/amo_pry/prepare_input_zero
+and prepare an input file 
+"fitting.input".
+The example input file can be found in 
+/home/lan/code/kkr_code/code/input_file/fittint.input
+
+Here is an example of input file.
+
+
+-----------------------------------------------------------------------------------
+! 1. Generate information
+! ----------------------------------------------------
+  n_atom          =       12            (How many atoms)
+  n_traj          =      40             (How many trajectory for fitting and testing  )
+  label_grad      =      YES            (Shall we use gradient to do check as well? )
+! 
+! ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+! 2.  Data prescreening
+  label_energy_scaling = True           (Shall we rescale the energy.  )  
+  energy_zero = -317.80134881           (The energy zero point. )  
+  scaling_energy = 27.2112                 (Scaling factor for energy. Here we change the energy from Hartree to eV)
+
+! ---------------------------------------------------
+! 3.  Select fitting data set  
+! ----------------------------------------------------
+  n_freq         = 2                    (How often shall we select the geometries for fitting, testing and prediction for each trajecrtoies?)
+  n_select       = 1000                 (The maximum number of geometries for each trajectory in selection)
+  n_s0           = 0                    (Do we have the ground state minimum? If so, we should have the directory "./0/" as well )
+  n_ci           = 0                    (Do we have all hopping geometries? )
+  Energy_judge   = 0.5                  (The energy conversion threshold. When the total energy change is larger than this value. Stop to choose geometries )
+  State_judge    = 60                   (When the trajectory goes back to the ground state, we stop consider geometries after this number of steps  )
+!  
+! -----------------------------------------------------------
+! 4.  Generate descriptor and collect all data 
+! ----------------------------------------------
+  n_traj_select_train   =  50            (How many trajectories are selected for training step.)
+  n_train        =  5000                 (How many geometries are selected for training step.)
+  n_x_dim        =  66                   (The dimensionality of input vector for X)
+  n_y_dim        =  3                    (The dimensionality of input vector for Y)
+  label_x_descriptor = 0                 (Choose the way to get molecular descriptor for each geometry.)
+!
+! -----------------------------------------------------------
+! 5.   Fitting procedure
+! ----------------------------------------------
+! 
+ para_kernel = rbf                                                   (Kernal ridge regression, Gaussian kernel)
+ para_gamma  = [ 0.00005, 0.0001, 0.0005, 0.001, 0.01, 0.1  ]        (parameters  exp(- gamma (x-x_i)**2)  )
+ para_alpha  = [ 0.000001, 0.00001, 0.0001, 0.001 ]                  (Regulation parameters)
+ work_path   = ./tmp                                                 (working directory) 
+ fit_path    = ./fit                                                 (Working directory)  
+ rescale     = Robust                         (How to rescale the X input. Robust means "Robust scaling". We can have no scaling or normal scaling. See SCI-KIT learn)
+ npro_train  = 8                              (How many CPUs)                       
+! 
+! ---------------------------------
+! 6. Prediction 
+! -------------------------
+!
+   n_predict_traj = 40                        (How many trajecrtories for prediction. )
+
+
+--------------------------------------------------------------------------
+
+When the file "fitting.input" is ready in directory "./prepare_input_zero",
+enter this directory and run 
+./0_prepare.py
+
+(Please make sure that the "$PATH" is correct.)
+This step gives an input file in json format.
+./input_initial.json
+
+
+4. Next we will start to make data prescreening step.
+Go to 
+./data_prescreening/
+copy all original data files to here.
+See scritp 
+/home/lan/code/kkr_code/code/input_file/copy_original_data.sh
+Then we get many directories under "./data_prescreening/", such as
+./data_prescreening/1
+./data_prescreening/2
+./data_prescreening/3
+./data_prescreening/4
+...
+
+In the case we wish to get gradient file ready as well, we need to  run
+/home/lan/code/kkr_code/code/input_file/split_grad_state.py
+in the directory 
+./data_prescreening/
+This splits the "grad_time.out" file to the gradient file for each state
+for example, to get  
+./grad_time.out_S0  
+./grad_time.out_S1  
+./grad_time.out_S2 
+in each directory for a trajectory. 
+
+When all data are ready, run 
+1_pre.py  
+in ./data_prescreening/
+Please note that the python code will automatically copy the input.json from the file generated by the previous step. 
+
+This step chooses geometries for all trajectories according to the input parameters.
+Then save each selected geometry (and gradient) for the next step. The PES file also modified accordingly.
+We get the below files in each trajectory directory.
+For example, we have 
+./data_prescreening/1/sample.xyz_1
+./data_prescreening/1/sample.xyz_2
+...
+/data_prescreening/1/grad_sample_S0.xyz_1 
+...
+/data_prescreening/1/grad_sample_S1.xyz_1
+...
+/data_prescreening/1/grad_sample_S2.xyz_1
+...
+/data_prescreening/1/pe_time_aferselect_afterscale.out
+All other trajectory directories contain the similar files.
+
+
+
+5 Generate the molecular descriptor for traing and testing. 
+Next all jobs are done in 
+./train_test_data_set
+Enter this directory and simply run
+2_select_train_test_all_in_one.py
+
+The code will automatically copy the input.json file
+and other relevant files from the previous step automatically.
+This step gives 
+a directory 
+./all_1
+which contains all files for next use.
+Their contents are explained as below.
+
+./x_train.dat     (Training data set X (n_samples_train, n_features)  ) 
+./y_train.dat_0   (Training data set Y (n_samples_train, 1), S0--PES  )  
+./y_train.dat_1   (Training data set Y (n_samples_train, 1), S1--PES  ) 
+./y_train.dat_1   (Training data set Y (n_samples_train, 1), S1--PES  ) 
+... 
+./x_test.dat     (Test data set X (n_samples_test, n_features)  )
+./y_test.dat_0   (Test data set Y (n_samples_test, 1), S0--PES  )     
+./y_test.dat_1   (Test data set Y (n_samples_test, 1), S1--PES  )
+./y_test.dat_1   (Test data set Y (n_samples_test, 1), S1--PES  )
+...
+
+./x_y_coulomb.dat (column matrixes of  all geometries. Only the upper triangle matrix is displayed.) 
+./x_y_distance.dat (distance matrixes of all geometries )  
+./x_y_inversed_distance.dat  (1/R_ij matrix)
+
+6 The fitting and test step
+All jobs are done in 
+./train_and_test
+Enter this directory and run 
+3_kernel_regression_ini.py
+The code will automatically copy the input.json file 
+and other relevant files from the previous step automatically.
+
+This step runs the kernel ridge regression and then do test. 
+This step gives a list of directories named as
+./fit_result_kkr_gamma_X_alpha_X_SX
+In each of them, you will find the fitting and test results
+for each case with different parameter combination.
+At the same time, you can view the whole results by checking three files. 
+./kkr_train.pdf:  The training results 
+kkr_test.pdf:     the testing results
+and error_summary_all.out : summary of all fitting and testing results.
+
+7. This step simply try to take fitting models and run the additional testing for all possible trajectories.
+All jobs are done in
+./test_additional
+Enter this directory and simply run
+4_additional_test_all_in_one.py
+After runing the above commands, we will get the testing results for all cases with different parameters.
+In each directory, you will find
+kkr_test.dat_X
+This files give the fitting and original data for Y, as well as their difference.
+The figures of the comparison between fitting and original datga can be found in 
+./plot_result
+
+8. Normall we can just use the good fitting model to do prediction. 
+This job is done in 
+./prediction 
+This step may need to modify the file 
+5_kkr_prediction_single_geom.py
+
+
+9. It is also good to do the testing of gradient before we use the PES.
+This step is done in 
+./gradient_check
+This step will try to get the PES and gradient data from the fitting model. Then compare with the available ones.
+The results are shown in figures, see file
+./gradient_check/result/fit_result_kkr_gamma_X_alpha_X_SX/vec_len_cos_A_traj.pdf
+This file contains the comparison of two gradients, including their length and direction. 
+
+
+

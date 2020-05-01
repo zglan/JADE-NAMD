@@ -1,0 +1,26 @@
+&control
+   n_sav_stat = 1,
+   hop_e = 10,
+   label_nac_phase = 1,
+   label_reject_hops = 1,
+   dtime = 0.2,
+   i_state = 3,
+   cor_dec = 0.1,
+   md_state_list = 1, 2, 3 ,
+   label_restart = 0,
+   dyn_method = 2,            
+   n_state = 3,
+   seed_random = -1,
+   ntime_ele = 100,
+   label_read_velocity = 0,
+   qm_method = 11,
+   ntime = 200,
+   n_sav_traj = 1,
+/
+&quantum
+   ci_td_use_file_type = log ,
+   ci_assign_problem = X+Y ,
+   is_do_cis_casida = yes ,  
+   qm_method = 11,  
+   qm_package = 102,
+/

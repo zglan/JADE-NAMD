@@ -1,0 +1,13 @@
+%nprocshared=1
+%mem=1GB
+%chk=gaussian.chk
+#p LC-wpbe/6-31g*   gfinput Iop(5/33=3,3/33=1,6/7=3)
+gfprint iop(6/7=3) pop=full nosymm
+
+dscf
+
+0 1
+ O                  0.26033786   -0.73078093    1.79686349
+ H                  1.22033786   -0.73078093    1.79686349
+ H                 -0.06011673    0.17415490    1.79686349
+

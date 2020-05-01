@@ -1,0 +1,22 @@
+{
+    "root": "./",
+    "dirs": {
+        "home": "QC_TMP",
+        "work": "MOLPRO_TMP",
+        "template": "MOLPRO_EXAM"
+    },
+    "files": {
+        "dyn": "inp.json",
+        "interface": "interface.json",
+        "template": "template.json",
+        "molpro_template": "molpro_template.inp",
+        "molpro_log": "molpro.log",
+        "molpro_wfu": "wfu",
+        "molpro_input": "molpro.inp"
+    },
+    "command": {
+        "molpro": "molpro"
+    }
+
+}     
+

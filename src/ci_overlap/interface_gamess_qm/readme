@@ -1,0 +1,22 @@
+export variables:
+
+        if 'GMS_VERSION_NO' in os.environ:
+            verno = os.environ.get('GMS_VERSION_NO')
+            print "use gamess value: version-no: ", verno 
+        else:
+            verno = "06"
+            print "GMS_VERSION_NO cannot be found ???"
+            print "use default value: version-no: 06"
+        self.vars['verno'] = verno
+        
+        if 'GMS_N_CPU' in os.environ:
+            n_cpu = os.environ.get('GMS_VERSION_NO')
+            print "use cpu value: n_cpu: ", n_cpu
+        else:
+            n_cpu = 2
+            print "GMS_N_CPU cannot be found ???"
+            print "use default value: n_cpu: 2"
+        self.vars['n_cpu'] = n_cpu
+
+
+

@@ -1,0 +1,99 @@
+\documentclass{article}
+
+\title{source code details}
+
+\begin{document}
+\maketitle
+\tableofcontent
+
+\section{casida assign problem}
+one can use X X+Y F
+and xF
+x = \sqrt{\epsilon_a-\epsilon_i}/\omega_}
+the ci coefficients c_{i,a} giving rise to mutually orthogonal electronic states can be calculated from the TDDFT eigenvectors according to
+relation: $ c_{ia} = (\epsilon_a-\epsilon_i)^{-1/2}(X_{ia}+Y_{ia}) $
+J. Chem. Phys. 135, 054105, (2011)
+
+see also J. Chem. Phys. 133, 194104, (2010)
+c_{ia}^\alpha = \sqrt{\epsilon_a-\epsilon_i}/\omega_\alpha e_{ia}^\alpha
+where e_{ia}^\alpha = ...(X-Y)
+
+finally,
+see formula (4,13,14,15,16), especially 4,15,16; in J. Chem. Phys. 131, 114101 2009
+All-electron calculation of nonadiabatic couplings from time-dependent
+density functional theory: Probing with the Hartree¨CFock exact exchange
+Chunping Hu,1,a2 Osamu Sugino,2 and Yoshitaka Tateyama
+and also:
+formula 4.2,4.3,4.4,4.5 in PHYSICAL REVIEW A 81, 052508 (2010)
+Mixed quantum-classical dynamics with time-dependent external fields:
+A time-dependent density-functional-theory approach
+Ivano Tavernelli,* Basile F. E. Curchod, and Ursula Rothlisberger
+
+and 
+formula 6 in J. Chem. Phys. 135, 054105 (2011)
+Time-dependent density functional theory excited state nonadiabatic
+dynamics combined with quantum mechanical/molecular mechanical
+approach: Photodynamics of indole in water
+Matthias Wohlgemuth,1 Vlasta Bona¡¦ci¡äc-Koutecky,2 and Roland Mitri¡äc1,
+
+we get c = \sqrt(\omega)|X+Y>
+AND F = (A-B)^(-1/2)|X+Y> = S^(-1/2)|X+Y>
+
+
+the original of this idea may be found in the TDHF problem.
+see the book
+Second quantization-based methods in quantum chemistry
+Chapter 6; Green's functon 6.2 
+
+Journal of Molecular Structure: THEOCHEM 914 (2009) 3¨C18
+
+\section{rwf/chk RECORD files}
+	Records in RWF is helpful to read intermediate files.
+	rwfdump is used to do this job.
+	\subsection{Excited Energyis & Transition moments}
+	
+        read excited energy
+        770R Saved ground-to-excited state energies and transition moments
+        770R format:
+        energy(1) + transition moments(15)
+        the first 16 numbers should be ignored.
+        energy(1) is the excited energy (+ ground state energy) 
+ Ground to excited state transition electric dipole moments (Au): three per state
+       state          X           Y           Z        Dip. S.      Osc.
+         1        -0.3720      0.2382     -0.0421      0.1969      0.0038
+         2        -0.0581      0.1188     -0.1488      0.0396      0.0019
+         3         0.3504     -0.2960      0.0600      0.2140      0.0165
+ Ground to excited state transition velocity dipole moments (Au): three per state
+       state          X           Y           Z        Dip. S.      Osc.
+         1         0.0642     -0.0310      0.0059      0.0051      0.1167
+         2        -0.0035     -0.0244      0.0371      0.0020      0.0183
+         3        -0.0568      0.0378     -0.0040      0.0047      0.0269
+ Ground to excited state transition magnetic dipole moments (Au): three per state
+       state          X           Y           Z
+         1         0.6273      1.0281      0.9700
+         2         0.5262      0.8305     -0.4429
+         3        -0.2654     -0.3635     -0.1668
+ Ground to excited state transition velocity quadrupole moments (Au): six per state
+       state          XX          YY          ZZ          XY          XZ          YZ
+         1        -0.9326     -0.1051      0.0119      0.3698      0.0138     -0.0283
+         2         0.2620     -0.0517      0.0255      0.0206     -0.2127      0.0612
+         3         0.7826      0.1684     -0.0282     -0.4173      0.0390     -0.0079
+
+
+
+L913: CIS/TDA or TD.
+0 Default (CIS for HF, 1 for TD-HF and TD-KS with hybrid functionals, 2 for TD-KS with pure 
+functionals).
+1 RPA using general, non-Hermitean algorithm.
+2 RPA using Hermitean scheme for pure DFT, converted here to 1 for hybrid functionals and HF.
+3 CIS/TDA.
+
+only g09 version D.01 could do TDA
+
+
+
+
+\end{document}
+
+
+

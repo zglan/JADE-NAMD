@@ -1,0 +1,8 @@
+
+call worker
+tur_zero.py
+tur_nonzero.py
+
+ci_hyb use x+y
+other use x
+without casida assignment
