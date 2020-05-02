@@ -1,1 +1,0 @@
-xmgrace -block data2.dat -bxy 1:4 -block data2.dat -bxy 1:6 -param settings.par
