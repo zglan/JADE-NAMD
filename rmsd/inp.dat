@@ -1,0 +1,22 @@
+n_atom          6
+n_traj          10
+n_freq          5
+n_select        5
+n_s0            1
+n_ci            1
+Energy_judge    0.1
+State_judge     50
+filename        traj_time.out
+
+n_pro           8
+charality       yes
+exchange        yes
+exch_matrix     [[3,4],[5,6]]
+exch_list       12
+
+rmsd_cutoff     0.2
+
+mds_dimension    8
+mds_cutoff       [0.2]
+
+
