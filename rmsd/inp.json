@@ -1,0 +1,20 @@
+{
+  "State_judge": "50", 
+  "n_traj": "10", 
+  "exchange": "no", 
+  "exch_matrix": "[[3,4],[5,6]]", 
+  "mds_dimension": "20", 
+  "n_select": "5", 
+  "filename": "traj_time.out", 
+  "n_s0": "1", 
+  "rmsd_cutoff": "2.5", 
+  "n_geom": 2275, 
+  "Energy_judge": "0.1", 
+  "exch_list": "12", 
+  "n_pro": "8", 
+  "mds_cutoff": "[0.2]", 
+  "charality": "no", 
+  "n_ci": "1", 
+  "n_freq": "5", 
+  "n_atom": "6"
+}

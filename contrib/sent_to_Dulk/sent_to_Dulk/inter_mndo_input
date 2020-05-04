@@ -1,5 +1,0 @@
-12                                    read (*,*) n_atom
-ci_all.xyz                            read (*,*) file1
-ci_mndo_stru                          read (*,*) file2
-187                                    read (*,*) n_step
-
