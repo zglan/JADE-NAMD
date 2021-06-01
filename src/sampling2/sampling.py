@@ -75,6 +75,8 @@ class gen_input:
         label_displacement = p.getint(section, 'label_displacement')
         n_geom = p.getint(section, 'n_geom')
         label_method = p.getint(section, 'label_method')
+        if label_method==2:
+           t_k = p.getint(section, 't_k')
         label_frozen = p.getint(section, 'label_frozen')
         number_frozen = p.getint(section, 'number_frozen')
         list_frozen = p.get(section, 'list_frozen').split()
@@ -95,6 +97,8 @@ class gen_input:
         print >>fp, "read (*,*)"
         print >>fp, "%d read (*,*) n_geom" % n_geom
         print >>fp, "%d read (*,*) label_method" % label_method
+        if label_method==2:
+           print >>fp, "%d read (*,*) t_k" % t_k
         print >>fp, "read (*,*)"
         print >>fp, "%d read (*,*) label_frozen" % label_frozen
         print >>fp, "%d read (*,*) number_frozen" % number_frozen        

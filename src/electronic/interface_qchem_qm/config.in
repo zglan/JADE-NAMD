@@ -1,0 +1,22 @@
+{
+    "root": "./",
+    "dirs": {
+        "home": "QC_TMP",
+        "work": "QCHEM_TMP",
+        "template": "QCHEM_EXAM"
+    },
+    "files": {
+        "dyn": "inp.json",
+        "interface": "interface.json",
+        "template": "template.json",
+        "qchem_template": "qchem_template.inp",
+        "qchem_log": "qchem.log",
+        "qchem_wfu": "save",
+        "qchem_input": "qchem.inp"
+    },
+    "command": {
+        "qchem": "qchem"
+    }
+
+}     
+

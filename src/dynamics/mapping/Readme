@@ -1,0 +1,8 @@
+elec: vv
+
+average PES done
+
+model 2: torsional potential: 0.5 * I_inverse * P_i **2 + 0.5 * V_i_n * ( 1 - cos(A) ) * c_n
+
+model 1: torsional potential: 0.5 * I_inverse * P_i **2 + 0.5 * V_i_n * ( 1 - cos(A) ) * c_n
+

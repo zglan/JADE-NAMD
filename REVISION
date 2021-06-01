@@ -1,0 +1,37 @@
+====
+JADE PACKAGE
+VERSION 1.0 alpha
+=================
+
+2014.10
+version 1.0 alpha
+a few bug fixed
+some interface was re-written and tested.
+
+2014.4
+version 0.3
+GAMESS(US) interface
+Langevin Dynamics 
+
+2013.12
+version 0.2
+Gaussian interface
+TDDFT/TDA etc
+
+2012.1
+version 0.1
+interface to turbomole
+surface hopping
+TDDFT ADC(2) etc.
+
+
+------------------
+
+@ Group of Prof. Dr. Zhenggang Lan
+Qingdao Institute of Bioenergy and Bioprocess Technology,
+Chinese Academy of Sciences,
+Qingdao, Shandong, China
+
+------------------
+
+

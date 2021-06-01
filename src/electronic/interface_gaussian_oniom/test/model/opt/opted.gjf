@@ -1,0 +1,20 @@
+%chk=G:\tree\Gitlib\jade\src\ci_overlap\interface_gaussian_oniom\test\model\opt\gau.chk
+# opt cam-b3lyp/6-31g(d) geom=connectivity
+
+Title Card Required
+
+1 1
+ C                  0.00000000    0.00000000   -0.67488700
+ H                  0.00000000    0.94447800   -1.21366500
+ H                  0.00000000   -0.94447800   -1.21366500
+ N                  0.00000000    0.00000000    0.59963600
+ H                  0.00000000    0.86746400    1.13960000
+ H                  0.00000000   -0.86746400    1.13960000
+
+ 1 2 1.0 3 1.0 4 2.0
+ 2
+ 3
+ 4 5 1.0 6 1.0
+ 5
+ 6
+

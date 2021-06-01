@@ -117,7 +117,6 @@ class gaussian_parser():
             coord[2] = float(record[5])*ANSTOBOHR
             atom = {'atom_number': atom_number, 'coord': coord}
             geom[i] = atom
- 
         fp.seek(name_pos)
         #print name_pos
         line = fp.readline()

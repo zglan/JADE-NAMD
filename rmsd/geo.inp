@@ -1,7 +1,0 @@
-distance  1 2
-distance  3 4
-angle  3 2 1
-dihedral 3 1 2 6
-dihedral 3 1 2 5
-dihedral 4 1 2 5
-dihedral 4 1 2 6
