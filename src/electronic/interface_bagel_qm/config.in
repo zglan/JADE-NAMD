@@ -1,0 +1,22 @@
+{
+    "root": "./",
+    "dirs": {
+        "home": "QC_TMP",
+        "work": "BAGEL_TMP",
+        "template": "BAGEL_EXAM"
+    },
+    "files": {
+        "dyn": "inp.json",
+        "interface": "interface.json",
+        "template": "template.json",
+        "bagel_template": "bagel_template.json",
+        "bagel_log": "bagel.log",
+        "bagel_wfu": "wfu.archive",
+        "bagel_input": "bagel.json"
+    },
+    "command": {
+        "bagel": "BAGEL"
+    }
+
+}     
+

@@ -1,0 +1,27 @@
+{
+    "root": "./",
+    "dirs": {
+        "home": "QC_TMP",
+        "work": "GAU_TMP",
+        "work_prev": "GAU_TMP_PREV",
+        "overlap": "OVERLAP",
+        "template": "GAU_EXAM",
+        "nac": "NAC"
+    },
+    "files": {
+        "dyn": "inp.json",
+        "interface": "interface.json",
+        "template": "template.json",
+        "inp_template": "gau_template.gjf",
+        "log": "gaussian.log",
+        "chk": "gaussian.chk",
+        "inp": "gaussian.gjf",
+        "dimension": "dimension.json"
+    },
+    "command": {
+        "gaussian": "g09"
+    }
+
+}     
+
+

@@ -72,16 +72,20 @@ unit K
 &quantum
 qm_method: supported QM method
 1:  semi-emperical method in MNDO
-2:  casscf and caspt2 method in molpro
+2:  casscf and caspt2 method
 3:  kkr regression
 11: TD-DFT (RPA/TDA) CIS TDHF
 12: RICC2
+21: QM/MM with TD-DFT (RPA/TDA) CIS TDHF
+22: QM/MM with semi-emperical method in MNDO
 
 qm_package: which QC package is used.
 101: Turbomole
 102: Gaussian 03 or 09
 103: Gamess (us)
+104: MNDO
 105: Molpro
+304: Chemshell with MNDO
 
 ci_assign_problem: use X or X+Y in CIS assignment
 X: use X vector

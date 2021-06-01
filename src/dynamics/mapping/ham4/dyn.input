@@ -1,0 +1,17 @@
+&dyn_control
+n_state =  2
+n_mode =  201
+n_mode_HO =  200
+n_mode_tor =  1
+ggamma =  0
+n_step =  1
+nuc_dt =  0.01
+n_ele_dt =  10
+n_save_trj =  25
+label_restart =  0
+label_diabatic =  1
+label_debug =  1
+hamilton_type =  4
+mapping_model =  1
+label_aver_PES = 1
+/

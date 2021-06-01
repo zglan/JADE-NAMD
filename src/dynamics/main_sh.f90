@@ -107,7 +107,6 @@
 !     if (dyn_method /= 11) then
        file_ini_coor=11
        open(unit=file_ini_coor, file="stru_xyz.in")
-       write (*,*) "hahah"
        read (file_ini_coor, *) n_atom
        close(11)
        
@@ -167,8 +166,8 @@
          rho(index_state, index_state) = 1.d0
 
 
-         call system ("rm *.dat")
-         call system ("rm *.out")
+         call system ("rm -rf *.dat")
+         call system ("rm -rf *.out")
          call system ("rm -rf QC_TMP")
 !         call system ("rm -rf ZN QC_TMP")
  
@@ -320,13 +319,13 @@
                                    hop_e )
        endif
 
-       !if ( (n_state .gt. 1)  .and. &
-       !     ( dyn_method .eq. 11 ) )  then
-       !   write (*,*) "Mapping dynamics with Meyer-Miller Model."
-       !   write (*,*) "J. Chem. Phys. 147, 064112 (2017)."
-       !      call  sub_mapping_ana_nac()
+       if ( (n_state .gt. 1)  .and. &
+            ( dyn_method .eq. 11 ) )  then
+          write (*,*) "Mapping dynamics with Meyer-Miller Model."
+          write (*,*) "J. Chem. Phys. 147, 064112 (2017)."
+             call  sub_mapping_ana_nac()
 
-       !endif
+       endif
       
        deallocate (md_state)
 
